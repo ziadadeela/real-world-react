@@ -1,0 +1,41 @@
+import {Moment} from "moment";
+
+export interface Post {
+    title: string,
+    slug: string,
+    body: string,
+    createdAt: Moment,
+    updatedAt: Moment,
+    tagList: Array<string>,
+    description: string,
+    author: Author,
+    favorited: boolean,
+    favoritesCount: number,
+}
+
+export interface Author {
+    username: string,
+    bio?: string,
+    image: string,
+    following: boolean,
+}
+
+export interface Profile {
+    bio: string,
+    following: boolean,
+    image: string,
+    username: string,
+}
+
+export interface LoginCredentials {
+    email: string,
+    password: string,
+}
+
+export interface AuthenticatedUser {
+    "email": string,
+    "token": string,
+    "username": string,
+    "bio": string,
+    "image": string
+}

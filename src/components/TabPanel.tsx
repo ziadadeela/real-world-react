@@ -3,20 +3,17 @@ import {Box, Typography} from "@material-ui/core";
 
 interface TabPanelProps {
     children: any;
-    value:number;
-    index:number;
 }
-export const TabPanel: React.FunctionComponent<TabPanelProps> = ({ children, value, index,...other}) => {
+export const TabPanel: React.FunctionComponent<TabPanelProps> = ({ children,...other}) => {
     return (
         <Typography
             component="div"
             role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
+            id={`simple-tabpanel`}
+            aria-labelledby={`simple-tab`}
             {...other}
         >
-            {value === index && <Box p={3}>{children}</Box>}
+            { <Box p={3}>{children}</Box>}
         </Typography>
     );
 };
