@@ -1,4 +1,4 @@
-import {axiosBase} from "../utils/axios";
+import axiosBase from "../utils/axios";
 
 interface RetrieveTagsResponse {
     tags: Array<string>

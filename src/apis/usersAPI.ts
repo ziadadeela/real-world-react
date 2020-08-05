@@ -1,4 +1,4 @@
-import {axiosBase} from "../utils/axios";
+import axiosBase from "../utils/axios";
 import {AuthenticatedUser, Profile} from "../Types"
 
 interface RetrieveUserResponse {

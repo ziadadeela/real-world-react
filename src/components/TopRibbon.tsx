@@ -6,6 +6,8 @@ import {
     Link
 } from "react-router-dom";
 import {getAuthenticatedUser, isAuthenticatedUser} from "../helpers/authHelper";
+import {useSelector} from "react-redux";
+import {authenticatedUserSelector, selectAuthenticatedUser} from "../redux/authUser/selectors";
 
 interface TopRibbonProps {
 
@@ -18,13 +20,15 @@ const flexContainer = {
 
 
 export const TopRibbon: React.FunctionComponent<TopRibbonProps> = () => {
+    const authUser = useSelector(selectAuthenticatedUser);
+
     return (
         <nav>
             <Grid container direction="row" justify="space-between" style={{padding: 10}}>
                 <Grid container item xs={8} justify="flex-start">
                     <h1 style={{paddingLeft: 20}}>Conduit</h1>
                 </Grid>
-                {isAuthenticatedUser() ? <AuthTopRibbonItems/> : <PublicTopRibbonItems/>}
+                {authUser.token !== "" ? <AuthTopRibbonItems/> : <PublicTopRibbonItems/>}
             </Grid>
         </nav>
     );
@@ -51,8 +55,7 @@ const PublicTopRibbonItems: React.FunctionComponent = () => {
 
 const AuthTopRibbonItems: React.FunctionComponent = () => {
     //TODO: not updated when logged in
-    let authUser = getAuthenticatedUser();
-
+    const authUser = useSelector(selectAuthenticatedUser);
     return (
         <Grid container item xs={4} justify="flex-end">
             <List style={flexContainer}>

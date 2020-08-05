@@ -72,6 +72,7 @@ export const SettingsPage: React.FunctionComponent<SettingsPageProps> = () => {
             <br/>
             <div>
                 <Button variant="contained" color="secondary" onClick={() => {
+                    //TODO: remove authUser from store
                     logOut();
                     history.push("/");
                 }}>

@@ -1,4 +1,5 @@
 import {Moment} from "moment";
+import {AuthenticatedUserState} from "./redux/authUser/reducers";
 
 export interface Post {
     title: string,
@@ -38,4 +39,8 @@ export interface AuthenticatedUser {
     "username": string,
     "bio": string,
     "image": string
+}
+
+export interface IStore {
+    authUser: AuthenticatedUserState
 }

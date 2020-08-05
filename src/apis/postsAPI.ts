@@ -1,4 +1,4 @@
-import {axiosBase} from "../utils/axios";
+import axiosBase from "../utils/axios";
 import qs from "qs";
 import {Post} from "../Types";
 
