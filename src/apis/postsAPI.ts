@@ -1,6 +1,6 @@
 import axiosBase from "../utils/axios";
 import qs from "qs";
-import {Post} from "../Types";
+import {Post, PostState} from "../Types";
 
 export interface RetrievePostsQuery {
     offset: number,
@@ -41,13 +41,9 @@ export function retrievePost(slug: string): Promise<RetrievePostResponse> {
         }));
 }
 
-export function CreatePost(title: string, description: string, body: string, tagList: Array<string>): Promise<RetrievePostResponse> {
-    return axiosBase.post(`articles`, {
-        title,
-        description,
-        body,
-        tagList
-    })
+//TODO: What's the best way to do that
+export function CreatePost(post: PostState): Promise<RetrievePostResponse> {
+    return axiosBase.post(`articles`, post)
         .then(result => ({
             post: result.data.article,
         }));

@@ -46,12 +46,11 @@ export const SignInForm: React.FunctionComponent<SignInFormProps> = () => {
                 initialValues={initialValues}
                 onSubmit={(values, actions) => {
                     login(values).then(result => {
-                        // setAuthenticatedUser(result.user);
                         dispatch(authenticateUser(result.user));
                         history.push('/');
                     })
                         .catch(error => {
-                            console.log(error.response.data.errors);
+                            console.log(error);
                             //email or password: ["is invalid"]
                             setErrors(error.response.data.errors);
                         }).finally(() => {

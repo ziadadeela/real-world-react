@@ -42,5 +42,14 @@ export interface AuthenticatedUser {
 }
 
 export interface IStore {
-    authUser: AuthenticatedUserState
+    authUser: AuthenticatedUserState,
+    isLoading: boolean,
+}
+
+export interface PostState {
+    title: string,
+    body: string,
+    description: string,
+    tagList: Array<string>,
+
 }

@@ -2,18 +2,19 @@ import React from 'react';
 import './App.css';
 import {TopRibbon} from "./components/TopRibbon";
 import {Routes} from "./components/Routes";
-import {BrowserRouter as Router} from "react-router-dom";
 import {Provider} from 'react-redux'
-import store from "./redux/store";
+import store, {history} from "./redux/store";
+import {ConnectedRouter} from 'connected-react-router'
+
 
 function App() {
     return (
         <Provider store={store}>
             <div className="App">
-                <Router>
+                <ConnectedRouter history={history}>
                     <TopRibbon/>
                     <Routes/>
-                </Router>
+                </ConnectedRouter>
             </div>
         </Provider>
     );
